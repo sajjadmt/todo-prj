@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RequestValidation;
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
@@ -25,9 +27,17 @@ class TodoController extends Controller
         return view('todos.create');
     }
 
-    public function store()
+    public function store(RequestValidation $request)
     {
-        
+        $data = $request->validated();
+
+        Todo::create([
+            'user_id' => Auth::user()->id,
+            'title' => $data['title'],
+            'body' => $data['body']
+        ]);
+
+        return redirect()->route('index');
     }
 
 }
