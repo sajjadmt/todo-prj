@@ -15,4 +15,9 @@ class TodoController extends Controller
         return view('todos.index' , compact('todos'));
     }
 
+    public function show(Todo $todo)
+    {
+        return view('todos.show',compact('todo'));
+    }
+
 }
