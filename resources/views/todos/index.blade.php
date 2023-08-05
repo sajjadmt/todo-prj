@@ -4,10 +4,9 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h4>Tasks</h4>
                 <div class="card">
                     <div class="card-header">
-                        Tasks
+                        <a href="{{ route('create') }}" class="btn abtn-sm btn-outline-info">Create New Todo</a>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">

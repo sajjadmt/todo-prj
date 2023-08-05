@@ -12,8 +12,8 @@
                         {{ $todo->body }}
                     </div>
                     <div class="m-2">
-                        <a href="" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="{{ route('index') }}" class="btn btn-sm btn-danger">Cancel</a>
+                        <a href="" class="btn btn-sm btn-outline-warning">Edit</a>
+                        <a href="{{ route('index') }}" class="btn btn-sm btn-outline-danger">Cancel</a>
                     </div>
                 </div>
             </div>

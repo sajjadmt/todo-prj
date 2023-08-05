@@ -20,4 +20,9 @@ class TodoController extends Controller
         return view('todos.show',compact('todo'));
     }
 
+    public function create()
+    {
+        return view('todos.create');
+    }
+
 }
