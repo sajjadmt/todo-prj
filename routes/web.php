@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(\App\Http\Controllers\TodoController::class)->group(function (){
     Route::get('/' , 'index')->name('index');
+    Route::get('/show/{todo}' , 'show')->name('show');
 });
