@@ -13,7 +13,9 @@
                         <ul class="list-group">
                             @foreach($todos as $todo)
                                 <li class="list-group-item">
-                                    {{ $todo->title }}
+                                    <a href="{{ route('show' , ['todo' => $todo->id]) }}" class="text-decoration-none text-black">
+                                        {{ $todo->title }}
+                                    </a>
                                 </li>
                             @endforeach
                         </ul>
