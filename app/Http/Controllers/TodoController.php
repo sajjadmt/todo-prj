@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\TodoCreateEvent;
 use App\Http\Requests\RequestValidation;
 use App\Models\Todo;
 use App\Notifications\CreateTodoNotification;
@@ -39,7 +40,7 @@ class TodoController extends Controller
             'body' => $data['body']
         ]);
 
-        Notification::send(Auth::user(),new CreateTodoNotification($todo));
+        event(new TodoCreateEvent($todo));
 
         return redirect()->route('index');
     }
