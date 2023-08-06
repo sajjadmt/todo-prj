@@ -57,4 +57,24 @@ class TodoController extends Controller
         return back();
     }
 
+    public function delete(Todo $todo)
+    {
+        $todo->delete();
+        return back();
+    }
+
+    public function complete(Todo $todo)
+    {
+        if ($todo->completed){
+            $todo->update([
+                'completed' => 0
+            ]);
+        }else{
+            $todo->update([
+                'completed' => 1
+            ]);
+        }
+        return back();
+    }
+
 }

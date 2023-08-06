@@ -19,7 +19,9 @@ Route::controller(\App\Http\Controllers\TodoController::class)->group(function (
     Route::get('/' , 'index')->name('index');
     Route::get('/show/{todo}' , 'show')->name('show');
     Route::get('/edit/{todo}' , 'edit')->name('edit');
+    Route::get('/complete/{todo}' , 'complete')->name('complete');
     Route::put('/update/{todo}' , 'update')->name('update');
+    Route::delete('/delete/{todo}' , 'delete')->name('delete');
     Route::get('/create' , 'create')->name('create');
     Route::post('/store' , 'store')->name('store');
 });

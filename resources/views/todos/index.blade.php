@@ -11,10 +11,24 @@
                     <div class="card-body">
                         <ul class="list-group">
                             @foreach($todos as $todo)
-                                <li class="list-group-item">
+                                <li class="list-group-item d-flex justify-content-between">
                                     <a href="{{ route('show' , ['todo' => $todo->id]) }}" class="text-decoration-none text-black">
                                         {{ $todo->title }}
                                     </a>
+                                    <div class="d-flex">
+                                        <a href="{{ route('complete' , ['todo' => $todo->id]) }}" class="btn btn-sm btn-outline-info">
+                                            @if($todo->completed)
+                                                Redo
+                                            @else
+                                                Complete
+                                            @endif
+                                        </a>
+                                        <form action="{{ route('delete' , ['todo' => $todo->id]) }}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+                                        </form>
+                                    </div>
                                 </li>
                             @endforeach
                         </ul>
