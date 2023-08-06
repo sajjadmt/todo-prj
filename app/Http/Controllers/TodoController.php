@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\TodoCreateEvent;
 use App\Http\Requests\RequestValidation;
+use App\Jobs\CreateTodoJob;
 use App\Models\Todo;
 use App\Notifications\CreateTodoNotification;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class TodoController extends Controller
             'body' => $data['body']
         ]);
 
-        event(new TodoCreateEvent($todo));
+        CreateTodoJob::dispatch($todo)->delay(now()->addSeconds(15));
 
         return redirect()->route('index');
     }
