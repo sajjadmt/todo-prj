@@ -5,10 +5,16 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between">
                         @can('create' , \App\Models\Todo::class)
                         <a href="{{ route('create') }}" class="btn abtn-sm btn-outline-info">Create New Todo</a>
                         @endcan
+                        <div class="d-flex">
+                            <form action="{{ route('search') }}" method="get">
+                                <input type="text" name="search" id="search" placeholder="Search Box">
+                                <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">

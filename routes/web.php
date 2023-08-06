@@ -24,4 +24,5 @@ Route::controller(\App\Http\Controllers\TodoController::class)->group(function (
     Route::delete('/delete/{todo}' , 'delete')->name('delete');
     Route::get('/create' , 'create')->name('create');
     Route::post('/store' , 'store')->name('store');
+    Route::get('/search' , 'search')->name('search');
 });

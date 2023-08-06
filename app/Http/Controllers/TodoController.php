@@ -77,4 +77,11 @@ class TodoController extends Controller
         return back();
     }
 
+    public function search(Request $request)
+    {
+        $result = Todo::search($request->search)->get();
+
+        return view('todos.search-result' , compact('result'));
+    }
+
 }
