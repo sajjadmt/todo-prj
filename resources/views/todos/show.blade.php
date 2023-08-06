@@ -12,7 +12,7 @@
                         {{ $todo->body }}
                     </div>
                     <div class="m-2">
-                        <a href="" class="btn btn-sm btn-outline-warning">Edit</a>
+                        <a href="{{ route('edit' , ['todo' => $todo->id]) }}" class="btn btn-sm btn-outline-warning">Edit</a>
                         <a href="{{ route('index') }}" class="btn btn-sm btn-outline-danger">Cancel</a>
                     </div>
                 </div>

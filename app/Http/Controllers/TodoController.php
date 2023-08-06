@@ -40,4 +40,21 @@ class TodoController extends Controller
         return redirect()->route('index');
     }
 
+    public function edit(Todo $todo)
+    {
+        return view('todos.edit' , compact('todo'));
+    }
+
+    public function update(Todo $todo , RequestValidation $request)
+    {
+        $data = $request->validated();
+
+        $todo->update([
+            'title' => $data['title'],
+            'body' => $data['body'],
+        ]);
+
+        return back();
+    }
+
 }

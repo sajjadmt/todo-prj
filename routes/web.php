@@ -18,6 +18,8 @@ auth()->onceUsingId(1);
 Route::controller(\App\Http\Controllers\TodoController::class)->group(function (){
     Route::get('/' , 'index')->name('index');
     Route::get('/show/{todo}' , 'show')->name('show');
+    Route::get('/edit/{todo}' , 'edit')->name('edit');
+    Route::put('/update/{todo}' , 'update')->name('update');
     Route::get('/create' , 'create')->name('create');
     Route::post('/store' , 'store')->name('store');
 });
