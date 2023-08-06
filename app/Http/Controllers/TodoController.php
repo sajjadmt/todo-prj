@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RequestValidation;
 use App\Models\Todo;
+use App\Notifications\CreateTodoNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class TodoController extends Controller
 {
@@ -31,11 +33,13 @@ class TodoController extends Controller
     {
         $data = $request->validated();
 
-        Todo::create([
+        $todo = Todo::create([
             'user_id' => Auth::user()->id,
             'title' => $data['title'],
             'body' => $data['body']
         ]);
+
+        Notification::send(Auth::user(),new CreateTodoNotification($todo));
 
         return redirect()->route('index');
     }
