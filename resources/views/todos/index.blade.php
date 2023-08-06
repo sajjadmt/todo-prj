@@ -6,7 +6,9 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
+                        @can('create' , \App\Models\Todo::class)
                         <a href="{{ route('create') }}" class="btn abtn-sm btn-outline-info">Create New Todo</a>
+                        @endcan
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
